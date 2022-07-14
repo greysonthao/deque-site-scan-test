@@ -1,9 +1,7 @@
 const { By, Key, Builder, Capabilities } = require("selenium-webdriver");
-const chromeCapabilities = Capabilities.chrome();
 require("chromedriver");
 const should = require("chai").should();
 const AxeBuilder = require("@axe-core/webdriverjs");
-chromeCapabilities.set("chromeOptions", { args: ["--headless"] });
 
 describe("deque challenge tests", function () {
   it("main-nav loads successfully", async function () {
@@ -28,9 +26,8 @@ describe("deque challenge tests", function () {
           console.log("Errors: ", err);
         }
         console.log("Results: ", results);
+        driver.quit();
       });
-
-      driver.quit();
     });
   });
 });
